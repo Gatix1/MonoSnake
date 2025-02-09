@@ -28,8 +28,6 @@ namespace MonoSnake
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
         }
 
@@ -39,15 +37,12 @@ namespace MonoSnake
             _gameManager.Load(Content);
             line_segment_texture = Content.Load<Texture2D>("images/line_sample");
             _font = Content.Load<SpriteFont>("fonts/m5x7");
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            // TODO: Add your update logic here
             _gameManager.Update(gameTime);
 
             base.Update(gameTime);
@@ -56,6 +51,7 @@ namespace MonoSnake
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Globals.darkColor);
+
             // Drawing outline
             _spriteBatch.Begin();
             _spriteBatch.Draw(line_segment_texture, new Rectangle(Globals.offset - 5, Globals.offset - 5, Globals.cellSize * Globals.cellsWidth + 10, 5), Globals.lightColor);
